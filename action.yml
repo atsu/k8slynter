@@ -1,16 +1,27 @@
-# action.yml
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'kubernetes yaml linter'
+description: 'Auto verify k8s yaml'
+author: 'atsu'
+
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  file_or_dir:
+    description: 'File(s) or Directory, separate by space if multiple files or folder are specified'
     required: true
-    default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  config_file:
+    description: 'Path to custom configuration'
+    required: false
+  strict:
+    description: 'Return non-zero exit code on warnings as well as errors'
+    required: false
+    default: "false"
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-  - ${{ inputs.who-to-greet }}
+    - ${{ inputs.file_or_dir }}
+    - ${{ inputs.config_file }}
+    - ${{ inputs.strict }}
+
+branding:
+  color: purple
+  icon: check-square
