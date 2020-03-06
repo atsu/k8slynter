@@ -11,6 +11,10 @@ fi
 if [ -f "$1" ]; then
 	echo "running /kubeyaml on $1"
 	/kubeyaml < "$1"
+	if [ $? -ne 0 ]; then
+		echo "error, exiting"
+		exit 1
+	fi
 fi
 
 if [ -d "$1" ]; then
