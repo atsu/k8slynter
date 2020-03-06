@@ -1,7 +1,6 @@
 #!/bin/sh -l
 
 echo 'test'
-docker run --rm atsuio/k8slynter:latest
-
+ls -al
 echo 'running kubeyaml'
 cat /test.yaml | /kubeyaml
