@@ -1,5 +1,6 @@
-FROM alpine:3.11.3
+FROM atsuio/k8slynter:latest
 
 COPY entrypoint.sh /entrypoint.sh
+COPY test.yaml /test.yaml
 
 ENTRYPOINT ["/entrypoint.sh"]
