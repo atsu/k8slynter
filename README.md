@@ -5,18 +5,12 @@ This action prints "Hello World" or "Hello" + the name of a person to greet to t
 
 ## Inputs
 
-### `who-to-greet`
+### `yaml-path`
 
-**Required** The name of the person to greet. Default `"World"`.
-
-## Outputs
-
-### `time`
-
-The time we greeted you.
+**Required** The path to the k8s yaml to validate, relative to `"/github/workspace/"` Can be a file or directory. If a directory, then only files that end in `.yaml` or `.yml` are validated.
 
 ## Example usage
 
-uses: actions/hello-world-docker-action@v1
+uses: atsu/k8slynter@v1
 with:
-  who-to-greet: 'Mona the Octocat'
+  yaml-path: 'test.yaml'
