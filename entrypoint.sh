@@ -1,7 +1,7 @@
 #!/bin/sh -l
 
 if [ -z "${GITHUB_WORKSPACE}" ]; then
-	GITHUB_WORKSPACES=/github/workspace
+	GITHUB_WORKSPACE=/github/workspace
 fi
 
 if [ -d "${GITHUB_WORKSPACE}" ] ;then
