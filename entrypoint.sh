@@ -3,6 +3,6 @@
 echo 'test'
 pwd
 ls -al
-ls -al /github/workflow
+ls -al /github/workspace
 echo 'running kubeyaml'
-cat /github/workflow/test.yaml | /kubeyaml
+cat /github/workspace/test.yaml | /kubeyaml
