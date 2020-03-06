@@ -1,6 +1,8 @@
 #!/bin/sh -l
 
 echo 'test'
+pwd
 ls -al
+ls -al /github/workflow
 echo 'running kubeyaml'
-cat /test.yaml | /kubeyaml
+cat /github/workflow/test.yaml | /kubeyaml
