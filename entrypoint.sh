@@ -26,11 +26,12 @@ if [ -d "$1" ]; then
 		exit 1
 	fi
 	echo "running find yml on DIR $1"
+	find $1 -type f -iname \*.yml -print0 | xargs -0 -t -n1 sh -c 'echo $@' \;
+
 	echo "find $1 -type f -iname \*.yml -print0 | xargs -0 -t -n1 sh -c 'cat $@ | /kubeyaml' \;"
 	find $1 -type f -iname \*.yml -print0 | xargs -0 -t -n1 sh -c 'cat $@ | /kubeyaml' \;
 	if [ $? -ne 0 ]; then
 		echo "error, exiting"
 		exit 1
 	fi
-	find $1 -type f -iname \*.yml -print0 | xargs -0 -t -n1 sh -c 'echo $@' \;
 fi
