@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: verify test.yaml
-    - uses: ./
+      uses: ./
       with:
         yaml-path: test.yaml
   dogfooding-directory:
@@ -20,6 +20,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: verify yaml directory
-    - uses: ./
+      uses: ./
       with:
         yaml-path: test
