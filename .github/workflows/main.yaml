@@ -7,10 +7,17 @@ on:
     - master
 
 jobs:
-  dogfooding:
+  dogfooding-file:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./
       with:
         yaml-path: test.yaml
+  dogfooding-directory:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./
+      with:
+        yaml-path: test
