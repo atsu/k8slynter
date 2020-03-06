@@ -1,16 +1,34 @@
 #!/bin/sh -l
 
-if [ -d /github/workspace ]; then
-	cd /github/workspace
+if [ -z "${GITHUB_WORKSPACE}" ]; then
+	GITHUB_WORKSPACE=/github/workspace
+fi
+
+if [ -d "${GITHUB_WORKSPACE}" ] ;then
+	cd ${GITHUB_WORKSPACE}
 fi
 
 if [ -f "$1" ]; then
-	echo "running kubeyaml on $1"
+	echo "running /kubeyaml on $1"
 	/kubeyaml < "$1"
+	if [ $? -ne 0 ]; then
+		echo "error, exiting"
+		exit 1
+	fi
 fi
 
 if [ -d "$1" ]; then
-	echo "running kubeyaml on DIR yaml $1"
-	find $1 -iname \*.yaml -type f -exec sh -c "cat {} | /kubeyaml" \;
-	find $1 -iname \*.yml -type f -exec sh -c "cat {} | /kubeyaml" \;
+	echo "running find yaml on DIR $1"
+	find $1 -type f -iname \*.yaml -print0 | xargs -r -0 -n1 sh -c 'cat $@ | /kubeyaml' \;
+	if [ $? -ne 0 ]; then
+		echo "error, exiting"
+		exit 1
+	fi
+
+	echo "running find yml on DIR $1"
+	find $1 -type f -iname \*.yml -print0 | xargs -r -0 -n1 sh -c 'cat $@ | /kubeyaml' \;
+	if [ $? -ne 0 ]; then
+		echo "error, exiting"
+		exit 1
+	fi
 fi
