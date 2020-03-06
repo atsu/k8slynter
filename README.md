@@ -1,7 +1,5 @@
 # k8slynter
-For validating Kubernetes yaml
-
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
+For validating/linting Kubernetes yaml
 
 ## Inputs
 
@@ -11,6 +9,6 @@ This action prints "Hello World" or "Hello" + the name of a person to greet to t
 
 ## Example usage
 
-uses: atsu/k8slynter@v1
+uses: atsu/k8slynter@master
 with:
   yaml-path: 'test.yaml'
