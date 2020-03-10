@@ -1,13 +1,5 @@
 name: k8slynter
-description: 'For validating k8s yaml'
-#inputs:
-#  yaml-path:
-#    description: 'The path to the k8s yaml to validate, relative to "/github/workspace/"'
-#    required: true
+description: 'Uses a forked version of github.com/instrumenta/kubeval to validating k8s yaml. Forked version add yaml sequence support.'
 runs:
   using: docker
-#  image: Dockerfile
   image: 'docker://atsuio/kubeval:latest'
-#  args:
-#  - "-v -d "
-#  - ${{ inputs.yaml-path }}
