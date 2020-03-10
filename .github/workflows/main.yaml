@@ -14,7 +14,7 @@ jobs:
     - name: verify test.yaml
       uses: ./
       with:
-        args: -f test/test.yaml
+        args: test/test.yaml
   dogfooding-directory:
     runs-on: ubuntu-latest
     steps:
