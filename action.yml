@@ -1,11 +1,13 @@
 name: k8slynter
 description: 'For validating k8s yaml'
-inputs:
-  yaml-path:
-    description: 'The path to the k8s yaml to validate, relative to "/github/workspace/"'
-    required: true
+#inputs:
+#  yaml-path:
+#    description: 'The path to the k8s yaml to validate, relative to "/github/workspace/"'
+#    required: true
 runs:
   using: docker
-  image: Dockerfile
-  args:
-  - ${{ inputs.yaml-path }}
+#  image: Dockerfile
+  image: 'docker://atsuio/kubeval:latest'
+#  args:
+#  - "-v -d "
+#  - ${{ inputs.yaml-path }}
