@@ -2,4 +2,4 @@ name: k8slynter
 description: 'Uses a forked version of github.com/instrumenta/kubeval to validating k8s yaml. Forked version add yaml sequence support.'
 runs:
   using: docker
-  image: 'docker://atsuio/kubeval:latest'
+  image: 'docker://garethr/kubeval:0.14.0'
