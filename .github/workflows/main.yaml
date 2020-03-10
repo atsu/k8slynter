@@ -8,10 +8,13 @@ on:
 
 jobs:
   dogfooding:
-  - name: verify yaml directory
-    uses: ./
-    with:
-      args: -d test
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: verify yaml directory
+      uses: ./
+      with:
+        args: -d test
 #  dogfooding-file:
 #    runs-on: ubuntu-latest
 #    steps:
