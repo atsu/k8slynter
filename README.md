@@ -1,14 +1,12 @@
 # k8slynter
 For validating/linting Kubernetes yaml
-
-## Inputs
-
-### `yaml-path`
-
-**Required** The path to the k8s yaml to validate, relative to `"/github/workspace/"` Can be a file or directory. If a directory, then only files that end in `.yaml` or `.yml` are validated.
+See: https://github.com/atsu/kubeval
+atsu/kubeval is a forked version of https://github.com/instrumenta/kubeval that adds yaml sequence support. 
 
 ## Example usage
 
-uses: atsu/k8slynter@master
-with:
-  yaml-path: 'test.yaml'
+- name: verify yaml directory
+  uses: atsu/k8slynter@master
+  with:
+    args: -d yaml-dir
+        
